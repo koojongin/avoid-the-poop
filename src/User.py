@@ -3,7 +3,7 @@ from pygame import Surface
 
 
 class User:
-    moveSpeed = 0.2
+    moveSpeed = 0.5
     state = "neutral"
     states = []
 
@@ -20,11 +20,11 @@ class User:
 
     def move_left(self):
         if self.x > 0:
-            self.x -= 0.1 * self.delta_time
+            self.x -= self.moveSpeed * self.delta_time
 
     def move_right(self):
         if self.x < 400 - self.image.get_width():
-            self.x += 0.1 * self.delta_time
+            self.x += self.moveSpeed * self.delta_time
 
     def set_delta_time(self, delta_time):
         self.delta_time = delta_time
@@ -44,7 +44,6 @@ class User:
 
         if self.states.__len__() == 0:
             self.state = "neutral"
-
 
     def on_key_down(self, key):
         if key == pygame.K_LEFT:

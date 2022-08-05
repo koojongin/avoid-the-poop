@@ -29,7 +29,7 @@ sound_poop = pygame.mixer.Sound('resources/audio/poop.wav')
 #
 display = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
 sound_bgm.set_volume(0.2)
-sound_poop.set_volume(0.4)
+sound_poop.set_volume(0.1)
 sound_bgm.play()
 
 

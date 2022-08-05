@@ -3,7 +3,7 @@ from pygame import Surface
 
 
 class User:
-    moveSpeed = 0.1
+    moveSpeed = 0.2
     state = "neutral"
     states = []
 
@@ -31,10 +31,10 @@ class User:
 
     def on_key_up(self, key):
         if key == pygame.K_LEFT:
-            self.states.remove(key)
+            self.states = [state for state in self.states if state != key]
 
         if key == pygame.K_RIGHT:
-            self.states.remove(key)
+            self.states = [state for state in self.states if state != key]
 
         if pygame.K_LEFT in self.states:
             self.state = "left"
@@ -44,6 +44,7 @@ class User:
 
         if self.states.__len__() == 0:
             self.state = "neutral"
+
 
     def on_key_down(self, key):
         if key == pygame.K_LEFT:

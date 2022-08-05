@@ -1,7 +1,7 @@
 ## Initialize for dev update
 
 ```
-$ python -m virtualenv venv  
+$ python -m virtualenv venv --python=python3.10
 $ (venv) pip install pygame 
 $ pip freeze > requirements.txt
 ```

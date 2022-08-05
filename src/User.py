@@ -1,7 +1,5 @@
 import pygame
 from pygame import Surface
-from pygame.mixer import Sound
-from pygame.surface import SurfaceType
 
 
 class User:
@@ -9,7 +7,7 @@ class User:
     state = "neutral"
     states = []
 
-    def __init__(self, x, y, image: Surface | SurfaceType, delta_time):
+    def __init__(self, x, y, image: Surface, delta_time):
         self.x = x
         self.y = y
         self.image = image

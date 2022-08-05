@@ -1,6 +1,5 @@
 from pygame import Surface
 from pygame.mixer import Sound
-from pygame.surface import SurfaceType
 
 
 class Ddong:
@@ -17,7 +16,7 @@ class Ddong:
     def get_position(self):
         return self.x, self.y
 
-    def set_image(self, image: Surface | SurfaceType):
+    def set_image(self, image: Surface):
         self.image = image
         self.width = image.get_width()
         self.height = image.get_height()

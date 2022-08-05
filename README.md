@@ -1,4 +1,4 @@
-## Installation
+## Initialize for dev update
 
 ```
 $ python -m virtualenv venv  

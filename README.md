@@ -11,6 +11,7 @@ Windows
 ```
 $ python -m virtualenv venv
 $ pip install -r requirements.txt 
+$ python index.py
 ```
 
 

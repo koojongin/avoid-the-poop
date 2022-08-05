@@ -63,7 +63,8 @@ avoid_score = 0
 while True:
 
     if is_running_game is False:
-        end_text = game_font.render("Dead!", True, (0, 0, 0))
+        end_text = game_font.render("Dead!"
+                                    "Press SpaceBar", True, (0, 0, 0))
         display.blit(end_text,
                      [DISPLAY_WIDTH / 2 - end_text.get_width() / 2, DISPLAY_HEIGHT / 2 - end_text.get_height() / 2])
         for event in pygame.event.get():

@@ -11,6 +11,8 @@ class User:
         self.x = x
         self.y = y
         self.image = image
+        self.width = self.image.get_width()
+        self.height = self.image.get_height()
         self.delta_time = delta_time
 
     def set_state(self, state):
@@ -51,3 +53,13 @@ class User:
         if key == pygame.K_RIGHT:
             self.states.append(key)
             self.state = "right"
+
+    def check_collision(self, obstacles):
+        for obstacle in obstacles:
+            rect = pygame.Rect(obstacle.x, obstacle.y, obstacle.width, obstacle.height)
+            player_rect = pygame.Rect(self.x, self.y, self.width, self.height)
+            is_collision = pygame.Rect.colliderect(player_rect, rect)
+            if is_collision is True:
+                return is_collision
+
+            return False

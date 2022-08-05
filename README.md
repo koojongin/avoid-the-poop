@@ -12,3 +12,7 @@ Windows
 $ python -m virtualenv venv
 $ pip install -r requirements.txt 
 ```
+
+
+## Preview
+![](https://github.com/koojongin/avoid-the-poop/blob/main/example.gif)

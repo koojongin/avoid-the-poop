@@ -57,6 +57,7 @@ def get_game_options():
 options = get_game_options()
 obstacles = options['obstacles']
 user = options['user']
+user.set_screen(display)
 is_running_game = options['is_running_game']
 avoid_score = 0
 
@@ -75,17 +76,17 @@ while True:
                     options = get_game_options()
                     obstacles = options['obstacles']
                     user = options['user']
+                    user.set_screen(display)
                     is_running_game = options['is_running_game']
                     avoid_score = 0
 
         pygame.display.update()
         continue
 
-    pygame.display.update()
     delta_time = clock.tick(60)
     score_text = game_font.render(str(avoid_score), True, (0, 0, 0))
     user.set_delta_time(delta_time)
-
+    user.update()
     display.fill([255, 255, 255])
     display.blit(score_text, [0, 0])
     display.blit(user.image, (user.x, user.y))
@@ -102,11 +103,10 @@ while True:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                # user.set_state('left')
                 user.on_key_down(event.key)
 
             if event.key == pygame.K_RIGHT:
-                # user.set_state('right')
+                user.x += delta_time * 1
                 user.on_key_down(event.key)
 
         if event.type == pygame.KEYUP:
@@ -121,12 +121,8 @@ while True:
                 obstacles.remove(obstacle)
                 avoid_score += 1
 
-    if user.state == "left":
-        user.move_left()
-
-    if user.state == "right":
-        user.move_right()
-
     is_collision = user.check_collision(obstacles)
     if is_collision is True:
         is_running_game = False
+
+    pygame.display.update()
